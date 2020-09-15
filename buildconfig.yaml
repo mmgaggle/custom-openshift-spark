@@ -10,7 +10,6 @@ spec:
       kind: ImageStreamTag
       name: custom-spark:latest
   source:
-    contextDir: python-3.6
     git:
       uri: https://github.com/mmgaggle/custom-openshift-spark
     type: Git
