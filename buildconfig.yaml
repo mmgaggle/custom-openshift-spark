@@ -1,0 +1,22 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    build: custom-spark
+  name: custom-spark
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: custom-spark:latest
+  source:
+    contextDir: python-3.6
+    git:
+      uri: https://github.com/mmgaggle/custom-openshift-spark
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: python-36:latest
+    type: Docker
